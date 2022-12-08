@@ -308,6 +308,12 @@ def kana2alphabet(text):
     >>> print(jaconv.kana2alphabet('まみさん'))
     mamisan
     """
+
+    """  prevents an infinite while loop  """
+    while 'っっ' in text:
+        text = text.replace('っっ', 'っ')
+
+
     text = text.replace('きゃ', 'kya').replace('きゅ', 'kyu').replace('きょ', 'kyo')
     text = text.replace('ぎゃ', 'gya').replace('ぎゅ', 'gyu').replace('ぎょ', 'gyo')
     text = text.replace('しゃ', 'sha').replace('しゅ', 'shu').replace('しょ', 'sho')
